@@ -1,0 +1,127 @@
+.a-item {
+  text-decoration: none;
+  color: inherit;
+  display: inline-block;
+}
+
+.attracties-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px; /* adds spacing between items */
+  padding: 20px;
+}
+
+.attractie-item {
+  width: 340px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.attractie-item:hover {
+  transform: scale(0.98);
+}
+
+.attractie-image {
+  width: 100%;
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.info-wrapper {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px 15px;
+  flex-wrap: wrap;
+}
+
+.info-cat,
+.info-level {
+  font-size: 10px;
+  color: #8C8C8C;
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  height: 45px;
+  padding-top: 25px;
+  width: 32%;
+  text-align: center;
+}
+
+.icon-height {
+  height: 28px; /* increased size */
+  width: auto;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.info-height {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px; /* slightly bigger */
+  font-weight: 500;
+  color: #475727;
+  margin: 6px 0;
+  gap: 8px;
+}
+
+.info-height-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 10px 10px;
+}
+
+
+.info-height + .info-height {
+  margin-top: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .attractie-item {
+    width: 95%;
+  }
+
+  .info-cat, .info-level {
+    width: 48%;
+  }
+}
+
+/* Initial hidden state */
+.attractie-title {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease;
+}
+
+/* When in view */
+.attractie-title.slide-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Expandable section */
+.info-height-wrapper {
+  max-height: 55px;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+  position: relative;
+}
+
+/* On hover (desktop) */
+.attractie-item:hover .info-height-wrapper {
+  max-height: 300px;
+}
+
+/* Optional: expand on tap for mobile (JS will add this class) */
+.attractie-item.expanded .info-height-wrapper {
+  max-height: 300px;
+}
